@@ -1,5 +1,7 @@
 # modules
 node_modules/
+react-colors/
+Color-picker/
 
 # files
 package-lock.json
