@@ -21,13 +21,14 @@ class ColorBox extends Component {
 	};
 	render() {
 		const { copied } = this.state;
+		let word = this.pickRandomWord();
 		return (
 			<CopyToClipboard text={this.props.background} onCopy={this.handleCopy}>
 				<div className="ColorBox" style={{ background: this.props.background }}>
 					<div className={`copy-overlay ${copied && 'show'}`} style={{ background: this.props.background }} />
 					<div className={`copy-msg ${copied && 'show'}`}>
 						{/* disable clicking of overlay to avoid rendering of different messages */}
-						<h1>{this.pickRandomWord()}</h1>
+						<h1>{word}</h1>
 						<p>{this.props.background}</p>
 					</div>
 					<div className="copy-container">
