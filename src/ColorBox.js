@@ -14,6 +14,11 @@ class ColorBox extends Component {
 			setTimeout(() => this.setState({ copied: false }), 1500);
 		});
 	};
+	pickRandomWord = () => {
+		let words = [ 'Copied!', 'Great Choice!', 'Paste Me!', 'There you go!', 'Sweet colour!' ];
+		let ind = Math.floor(Math.random() * words.length);
+		return words[ind];
+	};
 	render() {
 		const { copied } = this.state;
 		return (
@@ -21,7 +26,8 @@ class ColorBox extends Component {
 				<div className="ColorBox" style={{ background: this.props.background }}>
 					<div className={`copy-overlay ${copied && 'show'}`} style={{ background: this.props.background }} />
 					<div className={`copy-msg ${copied && 'show'}`}>
-						<h1>Copied!</h1>
+						{/* disable clicking of overlay to avoid rendering of different messages */}
+						<h1>{this.pickRandomWord()}</h1>
 						<p>{this.props.background}</p>
 					</div>
 					<div className="copy-container">
