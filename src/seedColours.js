@@ -136,8 +136,8 @@ export default [
 	},
 	{
 		paletteName: 'Flat UI Colors British',
-		id: <i className="em em-flag-gb" />,
-		emoji: '🇬🇧',
+		id: 'flat-ui-colors-british',
+		emoji: <i className="em em-flag-gb" />,
 		colors: [
 			{ name: 'ProtossPylon', color: '#00a8ff' },
 			{ name: 'Periwinkle', color: '#9c88ff' },
