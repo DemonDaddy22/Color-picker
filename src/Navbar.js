@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import Select from '@material-ui/core/Select';
@@ -30,7 +31,9 @@ class Navbar extends Component {
 		return (
 			<nav className="navbar">
 				<div className="logo">
-					<a href="#">Color Picker</a>
+					<NavLink exact to="/">
+						Color Picker
+					</NavLink>
 				</div>
 				<div className="slider-container">
 					<span>Level: {this.props.level}</span>
