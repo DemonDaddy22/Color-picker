@@ -7,19 +7,3 @@
 .Palette-colours {
 	height: 90%;
 }
-
-.Palette-footer {
-	height: 4vh;
-	background: white;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	font-weight: bold;
-	padding: 0.25rem;
-	font-size: 0.9rem;
-}
-
-.emoji {
-	margin: 0 1rem;
-	font-size: 0.9rem;
-}

@@ -35,18 +35,20 @@ class Navbar extends Component {
 						Color Picker
 					</NavLink>
 				</div>
-				<div className="slider-container">
-					<span>Level: {this.props.level}</span>
-					<div className="slider">
-						<Slider
-							min={100}
-							max={900}
-							defaultValue={this.props.level}
-							step={100}
-							onAfterChange={this.props.levelChange}
-						/>
+				{this.props.allColors && (
+					<div className="slider-container">
+						<span>Level: {this.props.level}</span>
+						<div className="slider">
+							<Slider
+								min={100}
+								max={900}
+								defaultValue={this.props.level}
+								step={100}
+								onAfterChange={this.props.levelChange}
+							/>
+						</div>
 					</div>
-				</div>
+				)}
 				<div className="select-container">
 					{/* disable select box when snackbar is open */}
 					<Select value={format} onChange={this.handleChange}>
