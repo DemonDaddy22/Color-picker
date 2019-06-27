@@ -23,6 +23,7 @@ class ColorBox extends Component {
 	render() {
 		const { copied } = this.state;
 		let word = this.pickRandomWord();
+		// console.log(this.props);
 		return (
 			<CopyToClipboard text={this.props.background} onCopy={this.handleCopy}>
 				<div className="ColorBox" style={{ background: this.props.background }}>
@@ -39,7 +40,7 @@ class ColorBox extends Component {
 						<button className="copy-button">Copy</button>
 					</div>
 					<Link
-						to="/"
+						to={`/palette/${this.props.paletteId}/${this.props.id}`}
 						onClick={(e) => {
 							e.stopPropagation();
 						}}
