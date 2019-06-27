@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ColorBox.css';
+import './stylesheets/ColorBox.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link } from 'react-router-dom';
 import chroma from 'chroma-js';
