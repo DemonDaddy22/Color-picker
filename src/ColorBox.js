@@ -39,14 +39,16 @@ class ColorBox extends Component {
 						</div>
 						<button className="copy-button">Copy</button>
 					</div>
-					<Link
-						to={`/palette/${this.props.paletteId}/${this.props.id}`}
-						onClick={(e) => {
-							e.stopPropagation();
-						}}
-					>
-						<span className="see-more">More</span>
-					</Link>
+					{this.props.showLink && (
+						<Link
+							to={`/palette/${this.props.paletteId}/${this.props.id}`}
+							onClick={(e) => {
+								e.stopPropagation();
+							}}
+						>
+							<span className="see-more">More</span>
+						</Link>
+					)}
 				</div>
 			</CopyToClipboard>
 		);
