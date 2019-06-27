@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './ColorBox.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link } from 'react-router-dom';
+import chroma from 'chroma-js';
 
 class ColorBox extends Component {
 	constructor(props) {
@@ -22,6 +23,8 @@ class ColorBox extends Component {
 	};
 	render() {
 		const { copied } = this.state;
+		const isDark = chroma(this.props.background).luminance() <= 0.1;
+		const isLight = chroma(this.props.background).luminance() >= 0.6015;
 		let word = this.pickRandomWord();
 		// console.log(this.props);
 		return (
@@ -30,14 +33,16 @@ class ColorBox extends Component {
 					<div className={`copy-overlay ${copied && 'show'}`} style={{ background: this.props.background }} />
 					<div className={`copy-msg ${copied && 'show'}`}>
 						{/* disable clicking of overlay to avoid rendering of different messages */}
-						<h1>{word}</h1>
-						<p>{this.props.background}</p>
+						<h1 className={`${isLight && 'dark-bg'}`}>{word}</h1>
+						<p style={{ backgroundColor: 'transparent' }} className={`${isLight && 'dark-text'}`}>
+							{this.props.background}
+						</p>
 					</div>
 					<div className="copy-container">
 						<div className="box-content">
-							<span>{this.props.name}</span>
+							<span className={isDark && 'light-text'}>{this.props.name}</span>
 						</div>
-						<button className="copy-button">Copy</button>
+						<button className={`copy-button ${isLight && 'dark-text'}`}>Copy</button>
 					</div>
 					{this.props.showLink && (
 						<Link
@@ -46,7 +51,7 @@ class ColorBox extends Component {
 								e.stopPropagation();
 							}}
 						>
-							<span className="see-more">More</span>
+							<span className={`see-more ${isLight && 'dark-text'}`}>MORE</span>
 						</Link>
 					)}
 				</div>

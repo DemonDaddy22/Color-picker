@@ -58,6 +58,19 @@
 	font-size: 12px;
 }
 
+.light-text {
+	color: #fff;
+}
+
+.ColorBox .dark-text {
+	color: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.ColorBox .dark-bg {
+	background: rgba(0, 0, 0, 0.1);
+}
+
 .see-more {
 	background: rgba(255, 255, 255, 0.3);
 	position: absolute;
