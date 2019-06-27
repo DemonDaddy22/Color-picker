@@ -22,6 +22,7 @@ class Routes extends Component {
 						<Palette palette={generatePalette(this.getPalette(routeProps.match.params.id))} />
 					)}
 				/>
+				<Route exact path="/palette/:paletteId/:colorId" />
 			</Switch>
 		);
 	}
