@@ -85,7 +85,7 @@ class NewPaletteForm extends Component {
 		};
 	}
 	componentDidMount() {
-		console.log(this.state);
+		// console.log(this.state);
 		ValidatorForm.addValidationRule('isColorNameUnique', (value) =>
 			this.state.colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
 		);
@@ -113,6 +113,16 @@ class NewPaletteForm extends Component {
 	handleChange = (e) => {
 		this.setState({ newName: e.target.value });
 	};
+	savePalette = () => {
+		let newName = 'New Palette';
+		let palette = {
+			paletteName: newName,
+			id: newName.toLowerCase().replace(/ /g, '-'),
+			colors: this.state.colors
+		};
+		this.props.savePalette(palette);
+		this.props.history.push('/');
+	};
 	render() {
 		const { classes } = this.props;
 		const { open } = this.state;
@@ -121,11 +131,12 @@ class NewPaletteForm extends Component {
 				<CssBaseline />
 				<AppBar
 					position="fixed"
+					color="default"
 					className={clsx(classes.appBar, {
 						[classes.appBarShift]: open
 					})}
 				>
-					<Toolbar>
+					<Toolbar disableGutters={!open}>
 						<IconButton
 							color="inherit"
 							aria-label="Open drawer"
@@ -135,9 +146,12 @@ class NewPaletteForm extends Component {
 						>
 							<MenuIcon />
 						</IconButton>
-						<Typography variant="h6" noWrap>
+						<Typography variant="h6" color="inherit" noWrap>
 							Create a Palette
 						</Typography>
+						<Button variant="contained" color="primary" onClick={this.savePalette}>
+							Save Palette
+						</Button>
 					</Toolbar>
 				</AppBar>
 				<Drawer

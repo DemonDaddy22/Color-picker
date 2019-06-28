@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/styles';
 const styles = {
 	root: {
 		backgroundColor: '#ffffff',
+		border: 'none',
 		borderRadius: '5px',
-		border: '1px solid black',
 		padding: '0.5rem',
 		position: 'relative',
 		overflow: 'hidden',
