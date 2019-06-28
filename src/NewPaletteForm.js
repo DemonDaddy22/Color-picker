@@ -81,6 +81,7 @@ class NewPaletteForm extends Component {
 			open: false,
 			currentColor: 'teal',
 			newName: '',
+			newPaletteName: '',
 			colors: [ { color: '#3486ee', name: 'blue' } ]
 		};
 	}
@@ -91,6 +92,9 @@ class NewPaletteForm extends Component {
 		);
 		ValidatorForm.addValidationRule('isColorUnique', (value) =>
 			this.state.colors.every(({ color }) => color !== this.state.currentColor)
+		);
+		ValidatorForm.addValidationRule('isPaletteNameUnique', (value) =>
+			this.props.palettes.every(({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase())
 		);
 	}
 	handleDrawerOpen = () => {
@@ -111,10 +115,10 @@ class NewPaletteForm extends Component {
 		this.setState({ colors: [ ...this.state.colors, newColor ], newName: '' });
 	};
 	handleChange = (e) => {
-		this.setState({ newName: e.target.value });
+		this.setState({ [e.target.name]: e.target.value });
 	};
 	savePalette = () => {
-		let newName = 'New Palette';
+		let newName = this.state.newPaletteName;
 		let palette = {
 			paletteName: newName,
 			id: newName.toLowerCase().replace(/ /g, '-'),
@@ -149,9 +153,19 @@ class NewPaletteForm extends Component {
 						<Typography variant="h6" color="inherit" noWrap>
 							Create a Palette
 						</Typography>
-						<Button variant="contained" color="primary" onClick={this.savePalette}>
-							Save Palette
-						</Button>
+						<ValidatorForm onSubmit={this.savePalette}>
+							<TextValidator
+								onChange={this.handleChange}
+								value={this.state.newPaletteName}
+								label="Palette Name"
+								name="newPaletteName"
+								validators={[ 'required', 'isPaletteNameUnique' ]}
+								errorMessages={[ '*Palette name cannot be empty', '*Palette name already exists' ]}
+							/>
+							<Button variant="contained" color="primary" type="submit">
+								Save Palette
+							</Button>
+						</ValidatorForm>
 					</Toolbar>
 				</AppBar>
 				<Drawer
@@ -180,6 +194,7 @@ class NewPaletteForm extends Component {
 					<ValidatorForm onSubmit={this.addNewColor}>
 						<TextValidator
 							value={this.state.newName}
+							name="newName"
 							onChange={this.handleChange}
 							validators={[ 'required', 'isColorNameUnique', 'isColorUnique' ]}
 							errorMessages={[

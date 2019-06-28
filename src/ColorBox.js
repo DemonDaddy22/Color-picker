@@ -40,7 +40,7 @@ class ColorBox extends Component {
 					</div>
 					<div className="copy-container">
 						<div className="box-content">
-							<span className={isDark && 'light-text'}>{this.props.name}</span>
+							<span className={`${isDark && 'light-text'}`}>{this.props.name}</span>
 						</div>
 						<button className={`copy-button ${isLight && 'dark-text'}`}>Copy</button>
 					</div>
