@@ -16,6 +16,7 @@ class Routes extends Component {
 		return (
 			<Switch>
 				<Route exact path="/" render={(routeProps) => <PaletteList palettes={seedColours} {...routeProps} />} />
+				<Route exact path="/palette/new" render={() => <h1>New Palette Form</h1>} />
 				<Route
 					exact
 					path="/palette/:id"

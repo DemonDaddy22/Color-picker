@@ -6,7 +6,7 @@ class App extends Component {
 	render() {
 		// console.log(generatePalette(seedColours[7]));
 		return (
-			<div>
+			<div className="Appy">
 				{/* <Palette palette={generatePalette(seedColours[7])} /> */}
 				<Routes />
 			</div>
