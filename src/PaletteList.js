@@ -9,9 +9,7 @@ const styles = {
 		display: 'flex',
 		alignItems: 'flex-start',
 		justifyContent: 'center',
-		height: '100vh',
-		overflow: 'scroll',
-		paddingBottom: '2rem'
+		height: '100vh'
 	},
 	container: {
 		width: '50%',

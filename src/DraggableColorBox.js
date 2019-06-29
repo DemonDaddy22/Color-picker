@@ -11,7 +11,7 @@ const styles = {
 		margin: '0 auto',
 		position: 'relative',
 		cursor: 'pointer',
-		marginBottom: '-4.5px',
+		marginBottom: '-4.8px',
 		'&:hover svg': {
 			color: '#fff',
 			transform: 'scale(1.3)'
