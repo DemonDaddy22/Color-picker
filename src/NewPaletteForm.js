@@ -53,7 +53,6 @@ const styles = (theme) => ({
 		justifyContent: 'flex-end'
 	},
 	content: {
-		overflow: 'scroll',
 		height: 'calc(100vh - 64px)',
 		flexGrow: 1,
 		padding: theme.spacing(1),
@@ -143,7 +142,6 @@ class NewPaletteForm extends Component {
 			<div className={classes.root}>
 				<PaletteFormNav
 					open={open}
-					classes={classes}
 					palettes={palettes}
 					handleSubmit={this.savePalette}
 					handleDrawerOpen={this.handleDrawerOpen}
