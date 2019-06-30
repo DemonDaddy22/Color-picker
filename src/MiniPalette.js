@@ -45,16 +45,17 @@ const styles = {
 };
 
 function MiniPalette(props) {
-	const { classes, paletteName, emoji, colors } = props;
-	// console.log(classes);
-	const miniColors = colors.map((c) => {
-		return <div className={classes.miniColor} style={{ backgroundColor: c.color }} key={c.name} />;
-	});
+	const { classes, palette } = props;
+	// console.log(palette);
+	const miniColors = palette.colors.map((c) => (
+		<div className={classes.miniColor} style={{ backgroundColor: c.color }} key={c.name} />
+	));
 	return (
 		<div className={classes.root} onClick={props.handleClick}>
 			<div className={classes.colors}>{miniColors}</div>
 			<h5 className={classes.title}>
-				{paletteName} <span className={classes.emoji}>{emoji}</span>
+				{/* {console.log(emoji)} */}
+				{palette.paletteName} <span className={classes.emoji}>{palette.emoji}</span>
 			</h5>
 		</div>
 	);

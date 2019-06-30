@@ -10,20 +10,32 @@ import NewPaletteForm from './NewPaletteForm';
 class Routes extends Component {
 	constructor(props) {
 		super(props);
+		const savedPalettes = JSON.parse(window.localStorage.getItem('palettes'));
+		console.log(savedPalettes);
 		this.state = {
-			palettes: seedColours
+			palettes: savedPalettes || seedColours
 		};
 	}
+
 	getPalette = (id) => {
 		return this.state.palettes.find(function(palette) {
 			return palette.id === id;
 		});
 	};
+
 	savePalette = (palette) => {
-		this.setState({
-			palettes: [ ...this.state.palettes, palette ]
-		});
+		this.setState(
+			{
+				palettes: [ ...this.state.palettes, palette ]
+			},
+			this.syncLocalStorage
+		);
 	};
+
+	syncLocalStorage = () => {
+		window.localStorage.setItem('palettes', JSON.stringify(this.state.palettes));
+	};
+
 	render() {
 		return (
 			<Switch>
