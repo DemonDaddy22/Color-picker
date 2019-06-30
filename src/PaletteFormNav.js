@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -36,6 +36,9 @@ const styles = (theme) => ({
 			duration: theme.transitions.duration.enteringScreen
 		})
 	},
+	hide: {
+		display: 'none'
+	},
 	menuButton: {
 		marginRight: 20,
 		marginLeft: 12
@@ -45,6 +48,10 @@ const styles = (theme) => ({
 	},
 	btn: {
 		margin: '0 0.5rem'
+	},
+	icon: {
+		margin: theme.spacing(2),
+		color: '#ad2f6a'
 	}
 });
 
@@ -88,7 +95,7 @@ class PaletteFormNav extends Component {
 							edge="start"
 							className={clsx(classes.menuButton, open && classes.hide)}
 						>
-							<MenuIcon />
+							<Icon className={`${classes.icon} fas fa-palette`} />
 						</IconButton>
 						<Typography variant="h6" color="inherit" noWrap>
 							Create a Palette
