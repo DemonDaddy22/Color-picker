@@ -1,0 +1,16 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'>
+<rect fill='#180055' width='100' height='1000'/>
+<g >
+<circle fill='#180055' cx='50' cy='0' r='50'/>
+<g fill='#1f005c' >
+<circle cx='0' cy='50' r='50'/>
+<circle cx='100' cy='50' r='50'/>
+</g>
+<circle fill='#270162' cx='50' cy='100' r='50'/>
+<g fill='#2e0269' >
+<circle cx='0' cy='150' r='50'/>
+<circle cx='100' cy='150' r='50'/>
+</g>
+<circle fill='#350270' cx='50' cy='200' r='50'/>
+<g fill='#3d0376' ><circle cx='0' cy='250' r='50'/>
+<circle cx='100' cy='250' r='50'/></g><circle fill='#44047d' cx='50' cy='300' r='50'/><g fill='#4c0583' ><circle cx='0' cy='350' r='50'/><circle cx='100' cy='350' r='50'/></g><circle fill='#53058a' cx='50' cy='400' r='50'/><g fill='#5b0691' ><circle cx='0' cy='450' r='50'/><circle cx='100' cy='450' r='50'/></g><circle fill='#630797' cx='50' cy='500' r='50'/><g fill='#6b079e' ><circle cx='0' cy='550' r='50'/><circle cx='100' cy='550' r='50'/></g><circle fill='#7408a4' cx='50' cy='600' r='50'/><g fill='#7c08ab' ><circle cx='0' cy='650' r='50'/><circle cx='100' cy='650' r='50'/></g><circle fill='#8408b1' cx='50' cy='700' r='50'/><g fill='#8d07b8' ><circle cx='0' cy='750' r='50'/><circle cx='100' cy='750' r='50'/></g><circle fill='#9607be' cx='50' cy='800' r='50'/><g fill='#9f06c4' ><circle cx='0' cy='850' r='50'/><circle cx='100' cy='850' r='50'/></g><circle fill='#a804cb' cx='50' cy='900' r='50'/><g fill='#b102d1' ><circle cx='0' cy='950' r='50'/><circle cx='100' cy='950' r='50'/></g><circle fill='#ba00d7' cx='50' cy='1000' r='50'/></g></svg>

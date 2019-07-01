@@ -36,13 +36,29 @@ class Routes extends Component {
 		window.localStorage.setItem('palettes', JSON.stringify(this.state.palettes));
 	};
 
+	deletePalette = (id) => {
+		let palettes = this.state.palettes.filter((p) => p.id !== id);
+		this.setState(
+			{
+				palettes: palettes
+			},
+			this.syncLocalStorage
+		);
+	};
+
 	render() {
 		return (
 			<Switch>
 				<Route
 					exact
 					path="/"
-					render={(routeProps) => <PaletteList palettes={this.state.palettes} {...routeProps} />}
+					render={(routeProps) => (
+						<PaletteList
+							deletePalette={this.deletePalette}
+							palettes={this.state.palettes}
+							{...routeProps}
+						/>
+					)}
 				/>
 				<Route
 					exact

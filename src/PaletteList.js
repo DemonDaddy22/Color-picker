@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import MiniPalette from './MiniPalette';
 import { withStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
+import bg from './stylesheets/bg.svg';
 
 const styles = {
 	root: {
-		backgroundColor: 'blue',
+		/* background by SVGBackgrounds.com */
+		backgroundColor: '#180055',
+		backgroundImage: `url(${bg})`,
 		display: 'flex',
 		alignItems: 'flex-start',
 		justifyContent: 'center',
-		height: '100vh'
+		height: '100vh',
+		overflow: 'auto'
+	},
+	title: {
+		fontSize: '2rem'
 	},
 	container: {
 		width: '50%',
@@ -44,13 +51,13 @@ class PaletteList extends Component {
 		this.props.history.push(`/palette/${id}`);
 	};
 	render() {
-		const { palettes, classes } = this.props;
+		const { palettes, classes, deletePalette } = this.props;
 		// console.log(palettes);
 		return (
 			<div className={classes.root}>
 				<div className={classes.container}>
 					<nav className={classes.nav}>
-						<h1>Palettes</h1>
+						<h1 className={classes.title}>Color Picker</h1>
 						<Link to="/palette/new">Create new palette</Link>
 					</nav>
 					<div className={classes.palettes}>
@@ -59,6 +66,7 @@ class PaletteList extends Component {
 								key={palette.id}
 								palette={palette}
 								handleClick={() => this.goToPalette(palette.id)}
+								deletePalette={() => deletePalette(palette.id)}
 							/>
 						))}
 					</div>
