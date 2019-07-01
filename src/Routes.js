@@ -13,7 +13,7 @@ class Routes extends Component {
 	constructor(props) {
 		super(props);
 		const savedPalettes = JSON.parse(window.localStorage.getItem('palettes'));
-		console.log(savedPalettes);
+		// console.log(savedPalettes);
 		this.state = {
 			palettes: savedPalettes || seedColours
 		};
