@@ -7,6 +7,7 @@ import { generatePalette } from './colorHelper';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
+import Page from './Page';
 
 class Routes extends Component {
 	constructor(props) {
@@ -52,57 +53,57 @@ class Routes extends Component {
 			<Route
 				render={({ location }) => (
 					<TransitionGroup>
-						<CSSTransition key={location.key} classNames="fade" timeout={500}>
+						<CSSTransition key={location.key} classNames="page" timeout={500}>
 							<Switch location={location}>
 								<Route
 									exact
 									path="/"
 									render={(routeProps) => (
-										<div className="page">
+										<Page>
 											<PaletteList
 												deletePalette={this.deletePalette}
 												palettes={this.state.palettes}
 												{...routeProps}
 											/>
-										</div>
+										</Page>
 									)}
 								/>
 								<Route
 									exact
 									path="/palette/new"
 									render={(routeProps) => (
-										<div className="page">
+										<Page>
 											<NewPaletteForm
 												palettes={this.state.palettes}
 												savePalette={this.savePalette}
 												{...routeProps}
 											/>
-										</div>
+										</Page>
 									)}
 								/>
 								<Route
 									exact
 									path="/palette/:id"
 									render={(routeProps) => (
-										<div className="page">
+										<Page>
 											<Palette
 												palette={generatePalette(this.getPalette(routeProps.match.params.id))}
 											/>
-										</div>
+										</Page>
 									)}
 								/>
 								<Route
 									exact
 									path="/palette/:paletteId/:colorId"
 									render={(routeProps) => (
-										<div className="page">
+										<Page>
 											<SingleColorPalette
 												palette={generatePalette(
 													this.getPalette(routeProps.match.params.paletteId)
 												)}
 												colorId={routeProps.match.params.colorId}
 											/>
-										</div>
+										</Page>
 									)}
 								/>
 							</Switch>
