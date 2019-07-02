@@ -60,6 +60,7 @@ export default {
 		}
 	},
 	deleteIcon: {
+		color: (props) => (chroma(props.color).luminance() <= 0.12 ? 'rgba(255,255,255,0.7)' : 'rgba(0, 0, 0, 0.8)'),
 		transition: 'all 0.25s ease-in-out'
 	},
 	colorName: {
