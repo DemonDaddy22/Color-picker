@@ -15,7 +15,7 @@ export default {
 		},
 		[sizes.down('lg')]: {
 			width: '25%',
-			height: (props) => (props.showFullPalette ? '20%' : '50%')
+			height: (props) => (props.showFullPalette ? '20%' : '33.3333%')
 		},
 		[sizes.down('md')]: {
 			width: '50%',
@@ -37,6 +37,12 @@ export default {
 		color: (props) => (chroma(props.background).luminance() >= 0.6015 ? 'rgba(0, 0, 0, 0.8)' : 'white')
 	},
 	copyTitle: {
+		[sizes.down('sm')]: {
+			fontSize: '6rem'
+		},
+		[sizes.down('xs')]: {
+			fontSize: '4rem'
+		},
 		color: 'white',
 		fontWeight: '400',
 		textShadow: '1px 2px 2px rgba(0, 0, 0, 0.5)',

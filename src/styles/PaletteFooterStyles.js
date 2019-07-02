@@ -1,7 +1,7 @@
 export default {
 	root: {
 		height: '4vh',
-		background: 'white',
+		background: '#efefef',
 		display: 'flex',
 		justifyContent: 'flex-end',
 		alignItems: 'center',

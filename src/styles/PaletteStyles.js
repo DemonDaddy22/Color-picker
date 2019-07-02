@@ -1,8 +1,11 @@
+import sizes from './sizes';
+
 export default {
 	palette: {
 		height: '100vh',
 		display: 'flex',
-		flexDirection: 'column'
+		flexDirection: 'column',
+		overflow: 'auto'
 	},
 	colors: {
 		height: '90%'
@@ -16,7 +19,23 @@ export default {
 		position: 'relative',
 		cursor: 'pointer',
 		opacity: 1,
-		background: '#000'
+		background: '#000',
+		[sizes.down('lg')]: {
+			width: '25%',
+			height: (props) => (props.showFullPalette ? '20%' : '33.3333%')
+		},
+		[sizes.down('md')]: {
+			width: '50%',
+			height: (props) => (props.showFullPalette ? '10%' : '20%')
+		},
+		[sizes.down('sm')]: {
+			width: '100%',
+			height: (props) => (props.showFullPalette ? '5%' : '10%')
+		},
+		[sizes.down('xs')]: {
+			width: '100%',
+			height: (props) => (props.showFullPalette ? '5%' : '10%')
+		}
 	},
 	backBtn: {
 		width: '100px',
