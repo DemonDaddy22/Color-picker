@@ -40,6 +40,7 @@ const DraggableColorBox = SortableElement((props) => {
 	return (
 		<div className={classes.root} style={{ backgroundColor: color }}>
 			<div className={classes.boxContent}>
+				{/* add dynamic text color */}
 				<span>{name}</span>
 				<span>
 					<DeleteRoundedIcon className={classes.deleteIcon} onClick={props.handleClick} />

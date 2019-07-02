@@ -178,6 +178,7 @@ class NewPaletteForm extends Component {
 					<div className={classes.container}>
 						<Typography variant="h4">Design Your Palette</Typography>
 						<div className={classes.btns}>
+							{/* Add transition and dialog for clearing */}
 							<Button
 								variant="contained"
 								color="secondary"
@@ -209,8 +210,8 @@ class NewPaletteForm extends Component {
 						colors={colors}
 						handleClick={this.handleDelete}
 						axis="xy"
-                        onSortEnd={this.onSortEnd}
-                        distance={20}
+						onSortEnd={this.onSortEnd}
+						distance={20}
 					/>
 				</main>
 			</div>
