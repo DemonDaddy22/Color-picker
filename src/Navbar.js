@@ -7,7 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import './stylesheets/Navbar.css';
+import { withStyles } from '@material-ui/styles';
+import styles from './styles/NavbarStyles';
 
 class Navbar extends Component {
 	constructor(props) {
@@ -17,28 +18,32 @@ class Navbar extends Component {
 			open: false
 		};
 	}
+
 	handleChange = (e) => {
 		this.setState({ format: e.target.value, open: true }, () => {
 			setTimeout(() => this.setState({ open: false }), 2500);
 		});
 		this.props.handleChange(e.target.value);
 	};
+
 	closeSnackBar = () => {
 		this.setState({ open: false });
 	};
+
 	render() {
 		const { format } = this.state;
+		const { classes } = this.props;
 		return (
-			<nav className="navbar">
-				<div className="logo">
+			<nav className={classes.navbar}>
+				<div className={classes.logo}>
 					<NavLink exact to="/">
 						Color Picker
 					</NavLink>
 				</div>
 				{this.props.allColors && (
-					<div className="slider-container">
+					<div>
 						<span>Level: {this.props.level}</span>
-						<div className="slider">
+						<div className={classes.slider}>
 							<Slider
 								min={100}
 								max={900}
@@ -49,7 +54,7 @@ class Navbar extends Component {
 						</div>
 					</div>
 				)}
-				<div className="select-container">
+				<div className={classes.selectContainer}>
 					{/* disable select box when snackbar is open */}
 					<Select value={format} onChange={this.handleChange}>
 						<MenuItem value="hex">HEX - #ffffff</MenuItem>
@@ -76,4 +81,4 @@ class Navbar extends Component {
 	}
 }
 
-export default Navbar;
+export default withStyles(styles)(Navbar);
