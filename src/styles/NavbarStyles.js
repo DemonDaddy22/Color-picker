@@ -1,3 +1,5 @@
+import sizes from './sizes';
+
 export default {
 	navbar: {
 		display: 'flex',
@@ -16,6 +18,9 @@ export default {
 		'& a': {
 			color: 'black',
 			textDecoration: 'none'
+		},
+		[sizes.down('xs')]: {
+			display: 'none'
 		}
 	},
 	selectContainer: {
@@ -41,6 +46,15 @@ export default {
 			height: 14,
 			marginLeft: '-7px',
 			marginTop: '-3px'
+		},
+		[sizes.down('md')]: {
+			width: '250px'
+		},
+		[sizes.down('sm')]: {
+			width: '175px'
+		},
+		[sizes.down('xs')]: {
+			width: '150px'
 		}
 	}
 };
